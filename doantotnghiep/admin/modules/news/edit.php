@@ -17,7 +17,7 @@
         $data = [
             "title" => postInput('title'),
             "summary" => postInput('summary'),
-            "author" => $_SESSION['admin_id'],
+            // "author" => $_SESSION['admin_id'],
             "content" => postInput('content')
       
         ];

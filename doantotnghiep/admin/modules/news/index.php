@@ -53,8 +53,8 @@
                                                     <th data-sortable="" style="width: 20%;"><a href="#" class="dataTable-sorter">Tiêu đề</a></th>
                                                     <th data-sortable="" style="width: 10%;"><a href="#" class="dataTable-sorter">Tác giả</a></th>
                                                     <th data-sortable="" style="width: 25%;"><a href="#" class="dataTable-sorter">Tóm tắt</a></th>
-                                                    <th data-sortable="" style="width: 15%;"><a href="#" class="dataTable-sorter">Hình ảnh</a></th>
-                                                    <th data-sortable="" style="width: 20%;"><a href="#" class="dataTable-sorter">Chức năng</a></th>
+                                                    <th data-sortable="" style="width: 20%;"><a href="#" class="dataTable-sorter">Hình ảnh</a></th>
+                                                    <th data-sortable="" style="width: 15%;"><a href="#" class="dataTable-sorter">Chức năng</a></th>
                                                    
                                                 </tr>
                                             </thead>

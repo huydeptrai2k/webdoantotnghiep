@@ -2,7 +2,7 @@
 <?php
 
 if( $level[0]['level']=="1"){
-    header("location: /doantotnghiep/admin/");
+    header("location: /doantotnghiep/admin/modules/news/");
 }
 
     $open = "product";

@@ -1,7 +1,7 @@
 <?php include("../../autoload/autoload.php") ?>
 <?php
- if( $level[0]['level']=="1"){
-    header("location: /doantotnghiep/admin/");
+if( $level[0]['level']=="1"){
+    header("location: /doantotnghiep/admin/modules/news/");
 }
 
     $open = "product";

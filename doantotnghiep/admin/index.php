@@ -2,6 +2,9 @@
 <?php
     
     $open = "dashboard";
+    if( $level[0]['level']=="1"){
+        header("location: /doantotnghiep/admin/modules/news/");
+    }
     // $category = $db->fetchAll("category");
     $sql7 ="SELECT count(*) FROM category";
     $sum_cate = $db->fetchnum($sql7);

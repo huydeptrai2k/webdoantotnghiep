@@ -2,7 +2,7 @@
 <?php
     $open = "admin";
     if( $level[0]['level']=="1"){
-        header("location: /doantotnghiep/admin/");
+        header("location: /doantotnghiep/admin/modules/news/");
     }
 
     if(isset($_GET['page'])){

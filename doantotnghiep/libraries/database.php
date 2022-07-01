@@ -8,7 +8,7 @@
         public $link;
         public function __construct()
         {
-            $this->link = mysqli_connect("localhost","root","123","webthietbididong") or die ();
+            $this->link = mysqli_connect("localhost","root","","webthietbididong") or die ();
             mysqli_set_charset($this->link,"utf8");
         }
         /**

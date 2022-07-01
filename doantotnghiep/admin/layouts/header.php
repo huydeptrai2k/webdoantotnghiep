@@ -43,77 +43,80 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link <?php echo isset($open) && $open =='dashboard' ? 'active' : ''?>" href="<?php echo base_url() ?>/admin">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Bảng điều khiển
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Quản lý</div>
-                            <li class="">
-                                <a class="nav-link <?php echo isset($open) && $open =='slide' ? 'active' : ''?> " href="<?php echo modules("slide")?>">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                    Thanh trượt
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a class="nav-link <?php echo isset($open) && $open =='category' ? 'active' : ''?> " href="<?php echo modules("category")?>">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                    Danh mục sản phẩm
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a class="nav-link <?php echo isset($open) && $open =='product' ? 'active' : ''?>" href="<?php echo modules("product")?>" >
-                                    <div class="sb-nav-link-icon"><i class="fa-brands fa-product-hunt"></i></div>
-                                    Sản phẩm
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a class="nav-link <?php echo isset($open) && $open =='user' ? 'active' : ''?>" href="<?php echo modules("user")?>" >
-                                    <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
-                                    Tài khoản khách hàng
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                                </a>
-                            </li>
-                         
-                            <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : 'display:block' ?>">
-                                <a class="nav-link <?php echo isset($open) && $open =='admin' ? 'active' : ''?>" href="<?php echo modules("admin")?>" >
-                                    <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
-                                    Tài khoản người quản trị
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a class="nav-link <?php echo isset($open) && $open =='transaction' ? 'active' : ''?>" href="<?php echo modules("transaction")?>" >
-                                    <div class="sb-nav-link-icon"><i class="fa-brands fa-artstation"></i></div>
-                                    Đơn hàng
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                                </a>
-                            </li>
-                           <li>
-                            <a class="nav-link  <?php echo isset($open) && $open =='news' ? 'active' : ''?>" href="<?php echo modules("news")?>" >
-                                    <div class="sb-nav-link-icon"><i class="fa-solid fa-blog"></i></div>
-                                    Tin tức
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                                </a>
-                           </li>
-                            <div class="sb-sidenav-menu-heading">Thống kê</div>
-                           <li>
-                            <a class="nav-link <?php echo isset($open) && $open =='doanhthu' ? 'active' : ''?> " href=" <?php echo modules("doanhthu.php")?>">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                    Doanh thu
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                                </a>
-                           </li>
-                          <li>
-                            <a class="nav-link <?php echo isset($open) && $open =='sanphamsaphet' ? 'active' : ''?>" href=" <?php echo modules("san-pham-sap-het.php")?>" >
-                                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                    Mặt hàng sắp hết
-                                    <div class="sb-sidenav-collapse-arrow"></div>
-                            </a>
-                          </li>
+                            <div class="sb-sidenav-menu-heading">
+                                <li  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a  class="nav-link <?php echo isset($open) && $open =='dashboard' ? 'active' : ''?>" href="<?php echo base_url() ?>/admin">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    Bảng điều khiển
+                                    </a>
+                                </li>
+                                <div class="sb-sidenav-menu-heading">Quản lý</div>
+                                <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a class="nav-link <?php echo isset($open) && $open =='slide' ? 'active' : ''?> " href="<?php echo modules("slide")?>">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                        Thanh trượt
+                                        <div class="sb-sidenav-collapse-arrow"></div>
+                                    </a>
+                                </li>
+                                <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a class="nav-link <?php echo isset($open) && $open =='category' ? 'active' : ''?> " href="<?php echo modules("category")?>">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                        Danh mục sản phẩm
+                                        <div class="sb-sidenav-collapse-arrow"></div>
+                                    </a>
+                                </li>
+                                <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a class="nav-link <?php echo isset($open) && $open =='product' ? 'active' : ''?>" href="<?php echo modules("product")?>" >
+                                        <div class="sb-nav-link-icon"><i class="fa-brands fa-product-hunt"></i></div>
+                                        Sản phẩm
+                                        <div class="sb-sidenav-collapse-arrow"></div>
+                                    </a>
+                                </li>
+                                <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a class="nav-link <?php echo isset($open) && $open =='user' ? 'active' : ''?>" href="<?php echo modules("user")?>" >
+                                        <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
+                                        Tài khoản khách hàng
+                                        <div class="sb-sidenav-collapse-arrow"></div>
+                                    </a>
+                                </li>
+                            
+                                <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a class="nav-link <?php echo isset($open) && $open =='admin' ? 'active' : ''?>" href="<?php echo modules("admin")?>" >
+                                        <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
+                                        Tài khoản người quản trị
+                                        <div class="sb-sidenav-collapse-arrow"></div>
+                                    </a>
+                                </li>
+                                <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a class="nav-link <?php echo isset($open) && $open =='transaction' ? 'active' : ''?>" href="<?php echo modules("transaction")?>" >
+                                        <div class="sb-nav-link-icon"><i class="fa-brands fa-artstation"></i></div>
+                                        Đơn hàng
+                                        <div class="sb-sidenav-collapse-arrow"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link  <?php echo isset($open) && $open =='news' ? 'active' : ''?>" href="<?php echo modules("news")?>" >
+                                            <div class="sb-nav-link-icon"><i class="fa-solid fa-blog"></i></div>
+                                            Tin tức
+                                            <div class="sb-sidenav-collapse-arrow"></div>
+                                        </a>
+                                </li>
+                                <div class="sb-sidenav-menu-heading">Thống kê</div>
+                                <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a class="nav-link <?php echo isset($open) && $open =='doanhthu' ? 'active' : ''?> " href=" <?php echo modules("doanhthu.php")?>">
+                                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                            Doanh thu
+                                            <div class="sb-sidenav-collapse-arrow"></div>
+                                        </a>
+                                </li>
+                                <li class="level-admin"  style="<?php echo $level[0]['level']=="1" ? 'display:none' : '' ?>">
+                                    <a class="nav-link <?php echo isset($open) && $open =='sanphamsaphet' ? 'active' : ''?>" href=" <?php echo modules("san-pham-sap-het.php")?>" >
+                                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                            Mặt hàng sắp hết
+                                            <div class="sb-sidenav-collapse-arrow"></div>
+                                    </a>
+                                </li>
+                            </div>
                         </div>
                     </div>
                   

@@ -18,8 +18,7 @@
 
     function base_url(){
 
-       // return $url = "http://localhost:8000/doantotnghiep"; localhost
-	   return $url = "http://139.180.140.24/doantotnghiep";
+        return $url = "http://brostech.me/doantotnghiep";
     }
 
     function asset_admin(){

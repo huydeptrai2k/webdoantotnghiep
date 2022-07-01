@@ -1,7 +1,9 @@
 <?php include("../../autoload/autoload.php") ?>
 <?php
     $open = "slide";
-
+    if( $level[0]['level']=="1"){
+      header("location: /doantotnghiep/admin/modules/news/");
+  }
     $id = intval(getInput('id'));
 
     $EditProduct = $db ->fetchID("slide",$id);

@@ -1,7 +1,9 @@
 <?php include("../../autoload/autoload.php") ?>
 <?php
     $open = "user";
-
+    if( $level[0]['level']=="1"){
+      header("location: /doantotnghiep/admin/modules/news/");
+  }
     $id = intval(getInput('id'));
 
     $EditUser = $db ->fetchID("users",$id);

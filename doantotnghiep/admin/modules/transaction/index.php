@@ -3,16 +3,38 @@
     $open = "transaction";
     // require_once __DIR__. "/../../autoload/autoload.php";
     // $product = $db->fetchAll("product");
+    if( $level[0]['level']=="1"){
+        header("location: /doantotnghiep/admin/modules/news/");
+    }
 
     if(isset($_GET['page'])){
         $p = $_GET['page'];
     }else{
         $p = 1;
     }
+    if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST['daybyday'])&& $_POST['daybyday']!=""){
+        $day = postInput("daybyday");
+        $sql = "SELECT transaction.* , users.name as nameuser FROM transaction LEFT JOIN users ON users.id = transaction.user_id WHERE date(transaction.created_at) = '$day' ORDER BY ID DESC ";
+    }else if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST['loc'])){
+        $loc = postInput("loc");
+        
+        if($loc == "1"){
+            $sql = "SELECT transaction.* , users.name as nameuser FROM transaction LEFT JOIN users ON users.id = transaction.user_id WHERE date(transaction.created_at)=CURRENT_DATE ORDER BY ID DESC ";
+        }else if($loc =="2"){
+            $sql = "SELECT transaction.* , users.name as nameuser FROM transaction LEFT JOIN users ON users.id = transaction.user_id WHERE week(transaction.created_at)=week(CURRENT_DATE) ORDER BY ID DESC ";
+        }else if($loc =="3"){
+            $sql = "SELECT transaction.* , users.name as nameuser FROM transaction LEFT JOIN users ON users.id = transaction.user_id WHERE month(transaction.created_at)=month(CURRENT_DATE) ORDER BY ID DESC ";
+        }else{
+            $sql = "SELECT transaction.* , users.name as nameuser FROM transaction LEFT JOIN users ON users.id = transaction.user_id ORDER BY ID DESC ";
+        }
+    }else{
+        $sql = "SELECT transaction.* , users.name as nameuser FROM transaction LEFT JOIN users ON users.id = transaction.user_id ORDER BY ID DESC ";
+    }
 
-    $sql = "SELECT transaction.* , users.name as nameuser FROM transaction LEFT JOIN users ON users.id = transaction.user_id ORDER BY ID DESC ";
 
-    $transaction = $db->fetchJone('transaction',$sql,$p,8,true);
+    // $sql = "SELECT transaction.* , users.name as nameuser FROM transaction LEFT JOIN users ON users.id = transaction.user_id ORDER BY ID DESC ";
+    $total1 = count($db->fetchsql($sql));
+    $transaction = $db->fetchJones('transaction',$sql,$total1,$p,9,true);
 
     if(isset($transaction['page'])){
         $sotrang = $transaction['page'];
@@ -40,7 +62,22 @@
                             <div class="card-body" >
                                 <div class="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
                                     <div class="dataTable-top">
-                                        <!-- <div class="dataTable-search"><input class="dataTable-input" placeholder="Search..." type="text"></div> -->
+                                       <form action="" method="POST">
+                                            <div class="dataTable" style="float: left; ">
+                                              <label for="">Hiển thị đơn hàng</label>
+                                              <select class="" name="loc" id="">
+                                                <option value="0">Tất cả</option>
+                                                <option value="1">Hôm nay</option>
+                                                <option value="2">Tuần này</option>
+                                                <option value="3">Tháng này</option>
+                                              </select>
+                                              <button type="submit" class="btn btn-success" style="padding:2px ;margin-bottom:1%" >Hiển thị</button>
+                                            </div>
+                                       <div class="dataTable" style="float: right ; margin-right:5%">
+                                        <input class="dataTable" placeholder="" type="date" name="daybyday"> 
+                                            <button type="submit" class="btn btn-success" style="padding:4px ;margin-bottom:1%" >Lọc</button>
+                                        </div>
+                                       </form>
                                     </div>
                                     <div class="dataTable-container">
                                         <table id="datatablesSimple" class="dataTable-table">
@@ -68,8 +105,8 @@
                                                     </td>
                                                     <td><?php echo $item['created_at'] ?></td>
                                                     <td>
-                                                        <a class="btn btn-outline-warning" href="edit.php?id=<?php echo $item['id']?>">Sửa</a>
-                                                        <a class="btn btn-outline-danger" onclick="return confirm('Bạn có muốn xóa không?')" href="delete.php?id=<?php echo $item['id']?>">Xóa</a>
+                                                        <a style="<?php echo $item['status']=="1" ? 'display:none' : '' ?> " class="btn btn-outline-warning"  href="edit.php?id=<?php echo $item['id']?>">Sửa</a>
+                                                        <a class="btn btn-outline-danger" onclick="return confirm('Bạn có muốn xóa không?')" href="delete.php?id=<?php echo $item['id']?>"style="<?php echo $item['status']=="1" ? 'display:none' : '' ?>">Xóa</a>
                                                         <a class="btn btn-outline-success" href="detail.php?id=<?php echo $item['id']?>">Chi tiết</a>
                                                     </td>
                                                 </tr>
@@ -90,7 +127,7 @@
                                                     }
                                                 ?>
                                                 <li class="<?php echo($i == $p) ?'active' : '' ?>">
-                                                    <a href="?page=<?php echo $i;?>" ><?php echo $i;?></a>
+                                                    <a href="?page=<?php echo $i;?>"><?php echo $i;?></a>
 
                                                 </li>
                                                 <?php endfor; ?>

@@ -4,6 +4,9 @@
     // $category = $db->fetchAll("category");
 
     $open = "slide";
+    if( $level[0]['level']=="1"){
+        header("location: /doantotnghiep/admin/modules/news/");
+    }
     if ($_SERVER["REQUEST_METHOD"]== "POST"){
         $data = [
             "title" => postInput('title'),

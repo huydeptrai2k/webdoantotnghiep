@@ -1,6 +1,9 @@
 <?php include("../../autoload/autoload.php") ?>
 <?php
     $open = "category";
+    if( $level[0]['level']=="1"){
+        header("location: /doantotnghiep/admin/modules/news/");
+    }
     // require_once __DIR__. "/../../autoload/autoload.php";
     $category = $db->fetchAll("category");
 

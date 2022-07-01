@@ -1,6 +1,8 @@
 <?php include("../../autoload/autoload.php");
   $open = "transaction";
-
+  if( $level[0]['level']=="1"){
+    header("location: /doantotnghiep/admin/modules/news/");
+}
   $id = intval(getInput('id'));
 
   $tran = $db->fetchID("transaction",$id);
@@ -105,6 +107,7 @@
                                           
                                             
                                         </form>
+                                        <a href="index.php" class="btn btn-success" style="float: right;"> Thoát </a>
                                 </div>
                                </form>
                             </div>

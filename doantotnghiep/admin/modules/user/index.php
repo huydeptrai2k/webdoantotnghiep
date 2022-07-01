@@ -3,7 +3,9 @@
     $open = "user";
     // require_once __DIR__. "/../../autoload/autoload.php";
     // $product = $db->fetchAll("product");
-
+    if( $level[0]['level']=="1"){
+        header("location: /doantotnghiep/admin/modules/news/");
+    }
     if(isset($_GET['page'])){
         $p = $_GET['page'];
     }else{

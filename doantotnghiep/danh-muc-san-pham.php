@@ -95,7 +95,7 @@
             <ul class="pagination">
                 <?php for($i=1;$i<=$sotrang;$i++) : ?>
                     <li class="<?php echo isset($_GET['p']) && $_GET['p'] == $i ? 'page-item active' : '' ?>">
-                        <a class="page-link" href="<?php echo $path ?> ?id=<?php echo $id ?> &&p=<?php echo $i?>"><?php echo $i ?></a></li>
+                        <a class="page-link" href="<?php echo $path?>?id=<?php echo $id ?>&&p=<?php echo $i?>"><?php echo $i ?></a></li>
                 <?php endfor; ?>
                 
                

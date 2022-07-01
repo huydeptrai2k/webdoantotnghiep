@@ -1,19 +1,22 @@
 <?php include("../autoload/autoload.php") ?>
 <?php
     $open = "doanhthu";
+    if( $level[0]['level']=="1"){
+        header("location: /doantotnghiep/admin/modules/news/");
+    }
     if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST['loc'])){
         $loc = postInput("loc");
     
         if($loc =="1"){
-            $sql ="SELECT SUM(amount) as doanhthu , MONTHNAME(created_at) as monthname from transaction WHERE status =1 GROUP BY monthname  ORDER BY month(created_at) ASC LIMIT 12 ";
+            $sql ="SELECT SUM(amount) as doanhthu , MONTHNAME(created_at) as monthname from transaction WHERE status =1 GROUP BY monthname  ORDER BY month(created_at) DESC LIMIT 12 ";
         }else if($loc =="2"){
-            $sql = " SELECT SUM(amount) as doanhthu , YEAR(created_at) as monthname from transaction WHERE status =1  GROUP BY monthname ORDER BY YEAR(created_at) ASC ";
+            $sql = " SELECT SUM(amount) as doanhthu , YEAR(created_at) as monthname from transaction WHERE status =1  GROUP BY monthname ORDER BY YEAR(created_at) DESC LIMIT 12";
         }else{
-            $sql =" SELECT SUM(amount) as doanhthu , DATE(created_at) as monthname from transaction WHERE status =1  GROUP BY monthname  ORDER BY DATE(created_at) ASC";
+            $sql =" SELECT SUM(amount) as doanhthu , DATE(created_at) as monthname from transaction WHERE status =1  GROUP BY monthname  ORDER BY DATE(created_at) DESC LIMIT 30";
         }
       
        }else{
-        $sql =" SELECT SUM(amount) as doanhthu , DATE(created_at) as monthname from transaction WHERE status =1  GROUP BY monthname  ORDER BY DATE(created_at) ASC  ";
+        $sql =" SELECT SUM(amount) as doanhthu , DATE(created_at) as monthname from transaction WHERE status =1  GROUP BY monthname  ORDER BY DATE(created_at) DESC LIMIT 30 ";
        }
     //    SELECT SUM(amount) as doanhthu , DATE(created_at) as monthname from transaction WHERE status =1 and month(CURRENT_DATE)=month(created_at)  GROUP BY monthname  ORDER BY DATE(created_at) ASC 
    $dt = $db->fetchsql($sql);
@@ -86,14 +89,14 @@
             display: false
             },
             ticks: {
-            maxTicksLimit: 30
+            maxTicksLimit: 12
             }
         }],
         yAxes: [{
             ticks: {
             min: 0,
             max: 1000000000,
-            maxTicksLimit: 5
+            maxTicksLimit: 10
             },
             gridLines: {
             display: true
